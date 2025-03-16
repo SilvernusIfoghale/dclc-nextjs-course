@@ -18,11 +18,16 @@ const Product = () => {
 
   //next function
   const handleNext = (index) => {
-    let charIndex = 22;
+    console.log("index", index);
+    let charIndex = 34;
+    // let char = index[charIndex];
     let char = index[charIndex] - 1;
+    console.log("char", char);
+    console.log(thumbnails[0].id);
     if (char + 1 == 4) {
       setImgToggle(thumbnails[0].id);
     } else {
+      console.log(thumbnails[0].id);
       setImgToggle(thumbnails[char + 1].id);
     }
   };
@@ -110,7 +115,7 @@ const Product = () => {
             </div>
             <div
               className="sm:hidden absolute flex justify-center items-center w-[40px] h-[40px] bg-white rounded-full  top-[38%] right-[40px] cursor-pointer"
-              onClick={() => handleNext(imgToggle)}
+              onClick={() => handleNext(imgToggle.src)}
             >
               <img src={pageImg.iconNext.src} alt="" className="w-[10px]" />
             </div>
