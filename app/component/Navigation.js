@@ -44,6 +44,16 @@ const Navigation = () => {
       >
         Register
       </Link>
+      <Link
+        href="./../e-commerce"
+        className={` ${
+          pathname === "./../e-commerce"
+            ? "font-bold text-blue-600"
+            : "text-blue-400 "
+        } text-blue-400 ml-4 mt-4 mb-4 p-2`}
+      >
+        E-Commerce
+      </Link>
     </div>
   );
 };
