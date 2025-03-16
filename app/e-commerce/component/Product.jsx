@@ -18,23 +18,19 @@ const Product = () => {
 
   //next function
   const handleNext = (index) => {
-    console.log("index", index);
     let charIndex = 34;
-    // let char = index[charIndex];
+
     let char = index[charIndex] - 1;
-    console.log("char", char);
-    console.log(thumbnails[0].id);
+
     if (char + 1 == 4) {
       setImgToggle(thumbnails[0].id);
     } else {
-      console.log(thumbnails[0].id);
       setImgToggle(thumbnails[char + 1].id);
     }
   };
   //nextFloat function
   const handleNextFloat = (index) => {
-    // let charIndex = 57;
-    let charIndex = 22;
+    let charIndex = 34;
     let char = index[charIndex] - 1;
     if (char + 1 == 4) {
       setImgToggleFloat(thumbnails[0].id);
@@ -45,7 +41,7 @@ const Product = () => {
 
   //previous function
   const handlePrevious = (index) => {
-    let charIndex = 22;
+    let charIndex = 34;
     let char = index[charIndex] - 1;
     if (char == 0) {
       setImgToggle(thumbnails[3].id);
@@ -55,7 +51,7 @@ const Product = () => {
   };
   //previousFloat function
   const handlePreviousFloat = (index) => {
-    let charIndex = 22;
+    let charIndex = 34;
     let char = index[charIndex] - 1;
     if (char == 0) {
       setImgToggleFloat(thumbnails[3].id);
@@ -103,7 +99,7 @@ const Product = () => {
           <section className="relative max-w-[430px] sm:max-w-[350px]">
             <div
               className="sm:hidden absolute flex justify-center items-center w-[40px] h-[40px] bg-white rounded-full  top-[40%] left-[30px] cursor-pointer"
-              onClick={() => handlePrevious(imgToggle)}
+              onClick={() => handlePrevious(imgToggle.src)}
             >
               <img src={pageImg.iconPrevious.src} alt="" className="w-[10px]" />
             </div>
@@ -139,7 +135,7 @@ const Product = () => {
                 <section className="relative max-w-[430px] sm:max-w-[350px]">
                   <div
                     className=" absolute flex justify-center items-center w-[40px] h-[40px] bg-white rounded-full  top-[36%] left-[-20px] cursor-pointer"
-                    onClick={() => handlePreviousFloat(imgToggleFloat)}
+                    onClick={() => handlePreviousFloat(imgToggleFloat.src)}
                   >
                     <img
                       src={pageImg.iconPrevious.src}
@@ -156,7 +152,7 @@ const Product = () => {
                   </div>
                   <div
                     className=" absolute flex justify-center items-center w-[40px] h-[40px] bg-white rounded-full  top-[35%] md:right-[-85px] sm:right-[-20px] cursor-pointer"
-                    onClick={() => handleNextFloat(imgToggleFloat)}
+                    onClick={() => handleNextFloat(imgToggleFloat.src)}
                   >
                     <img
                       src={pageImg.iconNext.src}
