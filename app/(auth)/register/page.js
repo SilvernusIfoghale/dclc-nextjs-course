@@ -7,8 +7,8 @@ const RegistrationPage = () => {
   const [state, action, isPending] = useActionState(Register, undefined);
   return (
     <>
-      <div className="flex justify-center mt-10 text-black">
-        <div className="w-96 h-96 bg-white p-5 rounded-lg mx-2">
+      <div className="flex justify-center my-10 text-black ">
+        <div className="w-96 min-h-96 bg-white p-5 rounded-lg mx-2">
           <h1 className="my-3 text-center  font-bold text-2xl">Register</h1>
           <form action={action}>
             <div className="my-3">
@@ -19,8 +19,13 @@ const RegistrationPage = () => {
                 id="email"
                 placeholder="johndoe@gmail.com"
                 className="rounded-lg p-1.5 border-2 w-full"
+                defaultValue={state?.email}
               />
+              {state?.errors?.email && (
+                <p className="text-xs text-red-400">{state.errors.email}</p>
+              )}
             </div>
+
             <div className="my-3">
               <label htmlFor="password">Password</label>
               <input
@@ -30,6 +35,18 @@ const RegistrationPage = () => {
                 placeholder="*********"
                 className="rounded-lg p-1.5 border-2 w-full"
               />
+              {state?.errors?.password && (
+                <div className="text-xs text-red-400">
+                  <p>Password must:</p>
+                  <ul>
+                    {state.errors.password.map((err) => (
+                      <li key={err} className="list-disc ml-5">
+                        {err}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
             <div className="my-3">
               <label htmlFor="confirmPassword">Confirm Password</label>
@@ -40,6 +57,11 @@ const RegistrationPage = () => {
                 placeholder="*********"
                 className="rounded-lg p-1.5 border-2 w-full"
               />
+              {state?.errors?.confirmPassword && (
+                <p className="text-xs text-red-400">
+                  {state.errors.confirmPassword}
+                </p>
+              )}
             </div>
             <div className="mt-7">
               <button
